@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinetix Studio — Diseño & Desarrollo Digital</title>
+    
+    <!-- Tailwind CSS vía CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fuente moderna: Plus Jakarta Sans desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Configuración personalizada de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        darkBg: '#09090B',      // Fondo principal oscuro elegante
+                        cardBg: '#121215',      // Fondo secundario sutil
+                        accent: '#6366F1',      // Índigo vibrante
+                        accentHover: '#4F46E5'  // Índigo intenso para hover
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos internos limpios para efectos visuales sutiles -->
+    <style>
+        /* Resplandor ambiental de fondo */
+        .ambient-glow {
+            background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.18) 0%, rgba(9, 9, 11, 0) 65%);
+        }
+
+        /* Animación de flotación suave para el elemento visual */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-zinc-100 font-sans antialiased selection:bg-accent selection:text-white min-h-screen flex flex-col justify-between ambient-glow">
+
+    <!-- =================================================================
+         1. TÍTULO Y ENCABEZADO (HEADER / NAV)
+         ================================================================= -->
+    <header class="w-full border-b border-zinc-800/70 backdrop-blur-md sticky top-0 z-50 bg-darkBg/80">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            
+            <!-- Logotipo y Título Principal -->
+            <a href="#" class="flex items-center gap-3 group focus:outline-none">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform duration-300">
+                    <!-- Ícono vectorial minimalista del logo -->
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </div>
+                <span class="text-xl font-extrabold tracking-tight text-white">
+                    Kinetix<span class="text-indigo-400">.</span>
+                </span>
+            </a>
+
+            <!-- Navegación minimalista -->
+            <nav class="hidden sm:flex items-center gap-8 text-sm font-medium text-zinc-400">
+                <a href="#soluciones" class="hover:text-white transition-colors">Soluciones</a>
+                <a href="#proceso" class="hover:text-white transition-colors">Proceso</a>
+                <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
+            </nav>
+
+            <!-- Indicador de disponibilidad -->
+            <div class="flex items-center gap-2 text-xs font-medium text-zinc-300 bg-zinc-900 border border-zinc-800 px-3.5 py-1.5 rounded-full">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Disponible 2026</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- =================================================================
+         2. SECCIÓN DE PRESENTACIÓN (HERO SECTION)
+         ================================================================= -->
+    <main class="flex-grow flex items-center py-16 md:py-24">
+        <div class="max-w-6xl mx-auto px-6 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Columna Izquierda: Propuesta de valor y CTA -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    
+                    <!-- Etiqueta superior (Badge) -->
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-semibold tracking-wide uppercase">
+                        <span>Arquitectura Web de Alto Impacto</span>
+                    </div>
+
+                    <!-- Titular Principal -->
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
+                        Transformamos ideas en 
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-300">
+                            productos digitales
+                        </span> 
+                        memorables.
+                    </h1>
+
+                    <!-- Texto descriptivo claro y persuasivo -->
+                    <p class="text-base sm:text-lg text-zinc-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Diseñamos interfaces minimalistas, rápidas y centradas en la conversión. Eliminamos la complejidad innecesaria para que tu marca destaque desde el primer segundo en cualquier dispositivo.
+                    </p>
+
+                    <!-- =================================================================
+                         4. BOTÓN O LLAMADO A LA ACCIÓN (CTA)
+                         ================================================================= -->
+                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#iniciar" 
+                           class="group relative inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-semibold text-white bg-accent rounded-xl overflow-hidden shadow-lg shadow-indigo-500/30 transition-all duration-300 ease-out hover:bg-accentHover hover:shadow-indigo-500/50 hover:-translate-y-0.5 active:translate-y-0 w-full sm:w-auto">
+                            <span>Comenzar mi proyecto</span>
+                            <!-- Flecha animada al hacer hover -->
+                            <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+
+                        <span class="text-xs text-zinc-500 font-medium">
+                            Sin compromisos · Respuesta en menos de 24h
+                        </span>
+                    </div>
+                </div>
+
+                <!-- =================================================================
+                     3. IMAGEN O ÍCONO DESTACADO (ILUSTRACIÓN VECTORIAL UI)
+                     ================================================================= -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md animate-float">
+                        
+                        <!-- Halo luminoso detrás de la ilustración -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-cyan-400 rounded-3xl blur-2xl opacity-20"></div>
+                        
+                        <!-- Tarjeta Contenedora de la Ilustración Vectorial -->
+                        <div class="relative bg-cardBg border border-zinc-800/90 rounded-3xl p-8 shadow-2xl">
+                            
+                            <!-- Ilustración Vectorial SVG Representativa (Interfaz & Métricas) -->
+                            <svg viewBox="0 0 400 320" class="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustración abstracta de diseño de interfaz moderna">
+                                <!-- Fondo de cuadrícula sutil -->
+                                <rect width="400" height="320" rx="16" fill="#18181B"/>
+                                <path d="M0 80H400M0 160H400M0 240H400M100 0V320M200 0V320M300 0V320" stroke="#27272A" stroke-width="1"/>
+                                
+                                <!-- Ventana flotante principal -->
+                                <rect x="40" y="45" width="320" height="230" rx="14" fill="#09090B" stroke="#3F3F46" stroke-width="1.5"/>
+                                
+                                <!-- Controles superiores de ventana -->
+                                <circle cx="64" cy="67" r="5" fill="#EF4444" fill-opacity="0.8"/>
+                                <circle cx="82" cy="67" r="5" fill="#F59E0B" fill-opacity="0.8"/>
+                                <circle cx="100" cy="67" r="5" fill="#10B981" fill-opacity="0.8"/>
+                                <line x1="40" y1="88" x2="360" y2="88" stroke="#27272A" stroke-width="1.5"/>
+
+                                <!-- Bloques de contenido UI -->
+                                <rect x="64" y="110" width="120" height="14" rx="7" fill="#6366F1"/>
+                                <rect x="64" y="136" width="180" height="10" rx="5" fill="#3F3F46"/>
+                                <rect x="64" y="156" width="145" height="10" rx="5" fill="#27272A"/>
+
+                                <!-- Gráfico de crecimiento minimalista -->
+                                <rect x="64" y="188" width="272" height="64" rx="10" fill="#121215" stroke="#27272A"/>
+                                <path d="M84 234L134 214L184 222L244 198L312 204" stroke="url(#paint_line)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="244" cy="198" r="5" fill="#38BDF8" stroke="#09090B" stroke-width="2"/>
+                                <circle cx="312" cy="204" r="5" fill="#818CF8" stroke="#09090B" stroke-width="2"/>
+
+                                <!-- Insignia flotante de rendimiento -->
+                                <rect x="252" y="106" width="84" height="36" rx="8" fill="#10B981" fill-opacity="0.15" stroke="#10B981" stroke-opacity="0.4"/>
+                                <text x="294" y="129" fill="#34D399" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">+99.8%</text>
+
+                                <!-- Definición de degradado SVG -->
+                                <defs>
+                                    <linearGradient id="paint_line" x1="84" y1="234" x2="312" y2="204" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#6366F1"/>
+                                        <stop offset="1" stop-color="#38BDF8"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de página minimalista -->
+    <footer class="w-full border-t border-zinc-800/60 py-6">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+            <p>&copy; 2026 Kinetix Studio. Todos los derechos reservados.</p>
+            <div class="flex items-center gap-6">
+                <a href="#" class="hover:text-zinc-300 transition-colors">Privacidad</a>
+                <a href="#" class="hover:text-zinc-300 transition-colors">Términos</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
